@@ -1,0 +1,111 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.JTextPane;
+
+public class Frame01 extends JFrame implements ActionListener{
+
+	JButton RegisterButton;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Frame01 frame = new Frame01();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Frame01() {
+				
+				//JPANEL ZONE
+					JPanel LogoPanel= new JPanel();
+					LogoPanel.setBackground(new Color(0xDBB88E));
+					LogoPanel.setBounds(0,0,600,200);
+						
+					JPanel RegisterID=new JPanel();
+					RegisterID.setBackground(new Color(0xDBB88E));
+					RegisterID.setBounds(0,199,600,200);
+					
+					JPanel RegisterPass=new JPanel();
+					RegisterPass.setBackground(new Color(0xDBB88E));
+					RegisterPass.setBounds(0,400,600,200);
+					
+				//LABEL ZONE
+						
+					ImageIcon image = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+				//JFRAME ZONE
+						
+					JFrame frame = new JFrame();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+					frame.setVisible(true);
+					frame.getContentPane().setLayout(null);
+					frame.setSize(600,600);
+					frame.setResizable(false);
+					//JButton ZONE
+							RegisterButton = new JButton();
+							RegisterPass.add(RegisterButton);
+							RegisterButton.setVerticalAlignment(SwingConstants.BOTTOM);
+							RegisterButton.setBounds(200,100,100,50);
+							RegisterButton.addActionListener(this);
+							RegisterButton.setText("Register");
+					
+				//Frame Adding zone
+					frame.getContentPane().add(LogoPanel);
+					LogoPanel.setLayout(new BorderLayout(0, 0));
+					JLabel Iconlabel = new JLabel();
+					LogoPanel.add(Iconlabel, BorderLayout.WEST);
+					Iconlabel.setIcon(image);
+					Iconlabel.setBackground(new Color(0xDBB88E));
+					Iconlabel.setOpaque(true);
+					
+						JLabel RegisterTopic1=new JLabel();
+						LogoPanel.add(RegisterTopic1, BorderLayout.CENTER);
+						RegisterTopic1.setText("Log-in");
+						RegisterTopic1.setFont(new Font("MV Boli",Font.PLAIN,30));
+					frame.getContentPane().add(RegisterID);
+					RegisterID.setLayout(new BorderLayout(0, 0));
+					
+					JTextPane txtpnPhoneNumber = new JTextPane();
+					txtpnPhoneNumber.setFont(new Font("MV Boli", Font.PLAIN, 30));
+					txtpnPhoneNumber.setBackground(new Color(219, 184, 142));
+					txtpnPhoneNumber.setText("Phone Number");
+					RegisterID.add(txtpnPhoneNumber, BorderLayout.NORTH);
+					frame.getContentPane().add(RegisterPass);
+					
+					JLabel RegisterTopic2=new JLabel();
+					RegisterPass.add(RegisterTopic2);
+					RegisterTopic2.setText("Pass");
+					RegisterTopic2.setFont(new Font("MV Boli",Font.PLAIN,30));
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

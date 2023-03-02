@@ -1,0 +1,104 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Frame01 extends JFrame implements ActionListener{
+
+	JButton RegisterButton;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Frame01 frame = new Frame01();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Frame01() {
+		//JButton ZONE
+				RegisterButton = new JButton();
+				RegisterButton.setBounds(200,100,100,50);
+				RegisterButton.addActionListener(this);
+				RegisterButton.setText("Register");
+				
+				//JPANEL ZONE
+					JPanel LogoPanel= new JPanel();
+					LogoPanel.setBackground(new Color(0xDBB88E));
+					LogoPanel.setBounds(0,0,600,200);
+						
+					JPanel RegisterID=new JPanel();
+					RegisterID.setBackground(new Color(0xDBB88E));
+					RegisterID.setBounds(0,200,600,200);
+					
+					JPanel RegisterPass=new JPanel();
+					RegisterPass.setBackground(new Color(0xDBB88E));
+					RegisterPass.setBounds(0,400,600,200);
+					
+				//LABEL ZONE
+						
+					ImageIcon image = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+					JLabel Iconlabel = new JLabel();
+					Iconlabel.setIcon(image);
+					Iconlabel.setBackground(new Color(0xDBB88E));
+					Iconlabel.setOpaque(true);
+				
+					JLabel RegisterTopic1=new JLabel();
+					RegisterTopic1.setText("Registeration");
+					RegisterTopic1.setFont(new Font("MV Boli",Font.PLAIN,30));
+						
+					JLabel RegisterTopic2=new JLabel();
+					RegisterTopic2.setText("Pass");
+					RegisterTopic2.setFont(new Font("MV Boli",Font.PLAIN,30));
+				//JFRAME ZONE
+						
+					JFrame frame = new JFrame();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+					frame.setVisible(true);
+					frame.setLayout(null);
+					frame.setSize(600,600);
+					frame.setResizable(false);
+						
+				//Panel Adding zone
+					//LogoPanel
+					LogoPanel.add(Iconlabel);
+					
+					//RegisterID			
+					RegisterID.add(RegisterTopic1);
+					
+					//RegisterPass
+					RegisterPass.add(RegisterTopic2);
+					RegisterPass.add(RegisterButton);
+					
+				//Frame Adding zone
+					frame.add(LogoPanel);
+					frame.add(RegisterID);
+					frame.add(RegisterPass);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
