@@ -1,0 +1,92 @@
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MenuPage extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuPage frame = new MenuPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+
+	JFrame frame;
+	JLabel logo;
+	private JPanel panel;
+	
+	public MenuPage() {
+		
+		//JLabel Zone
+		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+		ImageIcon hotCoffee=new ImageIcon("D:\\Project Picture\\HotCoffee.png");
+		
+		logo =new JLabel();
+		logo.setBounds(195, 11, 234, 194);
+		logo.setHorizontalAlignment(SwingConstants.CENTER);
+		logo.setIcon(Coffeelogo);
+		//JPanel Zone
+		panel = new JPanel();
+		panel.setBackground(new Color(219, 184, 142));
+		panel.setBounds(-16, -25, 600, 600);
+		panel.setLayout(null);
+		
+		
+		panel.add(logo);
+		
+		//JFrame Zone
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		frame.setVisible(true);
+		frame.setSize(600,600);
+		frame.setResizable(false);			
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(panel);
+		
+		JButton btnHotDrink = new JButton("Hot Drink");
+		btnHotDrink.setFont(new Font("MV Boli", Font.PLAIN, 25));
+		btnHotDrink.setBounds(92, 402, 173, 86);
+		btnHotDrink.addActionListener(this);
+		btnHotDrink.setFocusable(false);
+		panel.add(btnHotDrink);
+		
+		JButton btnColdDrink = new JButton("Cold Drink");
+		btnColdDrink.setFont(new Font("MV Boli", Font.PLAIN, 25));
+		btnColdDrink.setBounds(366, 402, 173, 86);
+		btnColdDrink.addActionListener(this);
+		btnHotDrink.setFocusable(false);
+		panel.add(btnColdDrink);
+		
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

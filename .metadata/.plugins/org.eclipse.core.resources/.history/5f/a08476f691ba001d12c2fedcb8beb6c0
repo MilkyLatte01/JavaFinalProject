@@ -1,0 +1,41 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class RegisterPage extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RegisterPage frame = new RegisterPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	JFrame frame;
+	public RegisterPage() {
+		//JFrame Zone
+		
+		
+				frame = new JFrame();
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+				frame.setVisible(true);
+				frame.setSize(600,600);
+				frame.setResizable(false);			
+
+		setContentPane(contentPane);
+	}
+
+}

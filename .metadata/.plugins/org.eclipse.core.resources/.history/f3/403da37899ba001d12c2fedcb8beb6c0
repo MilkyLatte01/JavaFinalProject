@@ -1,0 +1,276 @@
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import java.awt.GridLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JPasswordField;
+
+public class LogInPage extends JFrame implements ActionListener{
+	private static final Component btnLogIn = null;
+	private JTextField textField;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LogInPage frame = new LogInPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	
+	JButton Cancelbutton;
+	JButton LogInButton;
+	JButton RegInButton;
+	JFrame frame;
+	JPanel panel;
+	/**
+	 * Create the frame.
+	 */
+	 public LogInPage() {
+				
+				//JPANEL ZONE
+					JPanel LogoPanel= new JPanel();
+					LogoPanel.setBackground(new Color(0xDBB88E));
+					LogoPanel.setBounds(0,0,600,200);
+						
+					JPanel RegisterID=new JPanel();
+					RegisterID.setBackground(new Color(0xDBB88E));
+					RegisterID.setBounds(0,200,600,200);
+					
+					JPanel RegisterPass=new JPanel();
+					RegisterPass.setBackground(new Color(0xDBB88E));
+					RegisterPass.setBounds(0,400,600,200);
+					
+				//LABEL ZONE
+						
+					ImageIcon image = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+				//JFRAME ZONE
+						
+					frame = new JFrame();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+					frame.setVisible(true);
+					frame.getContentPane().setLayout(null);
+					frame.setSize(600,600);
+					frame.setResizable(false);
+					
+				//Frame Adding zone
+					frame.getContentPane().add(LogoPanel);
+					JLabel Iconlabel = new JLabel();
+					Iconlabel.setIcon(image);
+					Iconlabel.setBackground(new Color(0xDBB88E));
+					Iconlabel.setOpaque(true);
+					
+						JLabel RegisterTopic1=new JLabel();
+						RegisterTopic1.setText("Log-in");
+						RegisterTopic1.setFont(new Font("MV Boli", Font.PLAIN, 40));
+						GroupLayout gl_LogoPanel = new GroupLayout(LogoPanel);
+						gl_LogoPanel.setHorizontalGroup(
+							gl_LogoPanel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_LogoPanel.createSequentialGroup()
+									.addContainerGap()
+									.addComponent(Iconlabel)
+									.addPreferredGap(ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+									.addComponent(RegisterTopic1, GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
+									.addGap(69))
+						);
+						gl_LogoPanel.setVerticalGroup(
+							gl_LogoPanel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_LogoPanel.createSequentialGroup()
+									.addGroup(gl_LogoPanel.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_LogoPanel.createSequentialGroup()
+											.addContainerGap()
+											.addComponent(Iconlabel, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_LogoPanel.createSequentialGroup()
+											.addGap(36)
+											.addComponent(RegisterTopic1, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)))
+									.addContainerGap(41, Short.MAX_VALUE))
+						);
+						LogoPanel.setLayout(gl_LogoPanel);
+					frame.getContentPane().add(RegisterID);
+					
+					JLabel lblNewLabel = new JLabel("Telephone Number");
+					lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+					lblNewLabel.setFont(new Font("MV Boli", Font.PLAIN, 30));
+					
+					textField = new JTextField();
+					textField.addFocusListener(new FocusAdapter(){
+						@Override
+						public void focusGained(FocusEvent e) {
+							if(textField.getText().equals("Please enter your telephone number")) {
+								textField.setText(null);
+								textField.requestFocus();
+								textField.setFont(new Font("MV Boli",Font.PLAIN,20));
+								textField.setForeground(Color.black);			
+							}
+						}
+						@Override
+						public void focusLost(FocusEvent e) {
+							if(textField.getText().length()==0) {
+								textField.setFont(new Font("MV Boli",Font.PLAIN,20));
+								textField.setForeground(Color.gray);
+								textField.setText("Please enter your telephone number");
+							}
+						}
+					});
+					textField.setFont(new Font("MV Boli", Font.PLAIN, 20));
+					textField.setColumns(10);
+					
+					JLabel RegisterTopic2=new JLabel();
+					RegisterTopic2.setText("Password");
+					RegisterTopic2.setFont(new Font("MV Boli",Font.PLAIN,30));
+					
+					passwordField = new JPasswordField();
+					passwordField = new JPasswordField();
+					passwordField.addFocusListener(new FocusAdapter(){
+						@Override
+						public void focusGained(FocusEvent e) {
+							String password=new String(passwordField.getPassword());
+							if(password.equals("Please enter your password")) {
+								passwordField.setText(null);
+								passwordField.requestFocus();
+								passwordField.setFont(new Font("MV Boli",Font.PLAIN,20));
+								passwordField.setForeground(Color.black);			
+							}
+						}
+						@Override
+						public void focusLost(FocusEvent e) {
+							String password=new String(passwordField.getPassword());
+							if(password.length()==0) {
+								passwordField.setFont(new Font("MV Boli",Font.PLAIN,20));
+								passwordField.setForeground(Color.gray);
+								passwordField.setText("Please enter your password");
+							}
+						}
+					});
+					passwordField.setFont(new Font("MV Boli", Font.PLAIN, 20));
+					GroupLayout gl_RegisterID = new GroupLayout(RegisterID);
+					gl_RegisterID.setHorizontalGroup(
+						gl_RegisterID.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_RegisterID.createSequentialGroup()
+								.addGroup(gl_RegisterID.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_RegisterID.createSequentialGroup()
+										.addGap(138)
+										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 283, GroupLayout.PREFERRED_SIZE))
+									.addGroup(gl_RegisterID.createSequentialGroup()
+										.addGap(214)
+										.addComponent(RegisterTopic2, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)))
+								.addContainerGap(37, Short.MAX_VALUE))
+							.addGroup(Alignment.TRAILING, gl_RegisterID.createSequentialGroup()
+								.addGroup(gl_RegisterID.createParallelGroup(Alignment.TRAILING)
+									.addGroup(gl_RegisterID.createSequentialGroup()
+										.addContainerGap()
+										.addComponent(textField, GroupLayout.PREFERRED_SIZE, 553, GroupLayout.PREFERRED_SIZE))
+									.addGroup(gl_RegisterID.createSequentialGroup()
+										.addGap(20)
+										.addComponent(passwordField)))
+								.addGap(27))
+					);
+					gl_RegisterID.setVerticalGroup(
+						gl_RegisterID.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_RegisterID.createSequentialGroup()
+								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+								.addGap(11)
+								.addComponent(RegisterTopic2)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGap(10))
+					);
+					RegisterID.setLayout(gl_RegisterID);
+					frame.getContentPane().add(RegisterPass);
+					
+					LogInButton = new JButton("Log-in");
+					LogInButton.setFont(new Font("MV Boli", Font.PLAIN, 30));
+					LogInButton.addActionListener(this);
+					LogInButton.setFocusable(false);
+					
+					Cancelbutton = new JButton("Cancel");
+					Cancelbutton.setFont(new Font("MV Boli", Font.PLAIN, 30));
+					Cancelbutton.setFocusable(false);
+					Cancelbutton.addActionListener(this);
+					
+					RegInButton = new JButton("Register");
+					RegInButton.setFont(new Font("MV Boli", Font.PLAIN, 30));
+					RegInButton.addActionListener(this);
+					RegInButton.setFocusable(false);
+					
+					
+					GroupLayout gl_RegisterPass = new GroupLayout(RegisterPass);
+					gl_RegisterPass.setHorizontalGroup(
+						gl_RegisterPass.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_RegisterPass.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(LogInButton, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+								.addComponent(Cancelbutton, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
+								.addGap(27))
+							.addGroup(gl_RegisterPass.createSequentialGroup()
+								.addGap(207)
+								.addComponent(RegInButton, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(233, Short.MAX_VALUE))
+					);
+					gl_RegisterPass.setVerticalGroup(
+						gl_RegisterPass.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_RegisterPass.createSequentialGroup()
+								.addComponent(RegInButton, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+								.addGap(17)
+								.addGroup(gl_RegisterPass.createParallelGroup(Alignment.BASELINE)
+									.addComponent(LogInButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(Cancelbutton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+								.addContainerGap(49, Short.MAX_VALUE))
+					);
+					RegisterPass.setLayout(gl_RegisterPass);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==LogInButton) {
+			MenuPage menuPage = new MenuPage();
+			frame.dispose();
+			
+		}
+		
+		if(e.getSource()==RegInButton) {
+			RegisterPage registerPage=new RegisterPage();
+			frame.dispose();
+			
+		}
+		
+		
+		if(e.getSource()==Cancelbutton) {
+			frame.dispose();	
+		}
+	}
+}
