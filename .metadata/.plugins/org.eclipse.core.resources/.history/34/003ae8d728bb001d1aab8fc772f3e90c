@@ -36,8 +36,7 @@ public class MenuPage extends JFrame implements ActionListener {
 
 
 	JFrame frame;
-	JLabel logo1;
-	JLabel logo2;
+	JLabel logo;
 	private JPanel panel;
 	private JButton btnLogout;
 	
@@ -45,26 +44,20 @@ public class MenuPage extends JFrame implements ActionListener {
 		
 		//JLabel Zone
 		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
-		ImageIcon hotCoffee=new ImageIcon("D:\\Project Picture\\01.png");
+		ImageIcon hotCoffee=new ImageIcon("D:\\Project Picture\\HotCoffee.png");
 		
-		logo1 =new JLabel();
-		logo1.setBounds(195, 11, 234, 194);
-		logo1.setHorizontalAlignment(SwingConstants.CENTER);
-		logo1.setIcon(Coffeelogo);
-		
-		logo2 = new JLabel();
-		logo2.setBounds(20, 101, 276, 250);
-		logo2.setHorizontalAlignment(SwingConstants.CENTER);
-		logo2.setIcon(hotCoffee);
-		
+		logo =new JLabel();
+		logo.setBounds(195, 11, 234, 194);
+		logo.setHorizontalAlignment(SwingConstants.CENTER);
+		logo.setIcon(Coffeelogo);
 		//JPanel Zone
 		panel = new JPanel();
 		panel.setBackground(new Color(219, 184, 142));
 		panel.setBounds(-16, -25, 600, 600);
 		panel.setLayout(null);
 		
-		panel.add(logo2);
-		panel.add(logo1);
+		
+		panel.add(logo);
 		
 		//JFrame Zone
 		frame = new JFrame();
