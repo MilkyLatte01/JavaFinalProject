@@ -22,6 +22,9 @@ public class RegisterPage extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,7 +39,7 @@ public class RegisterPage extends JFrame implements ActionListener {
 	}
 	
 	JFrame jframe;
-	JButton btnOk;
+	JButton btnLogIn;
 	JButton btnCancel;
 	JLabel logo;
 	private JLabel lblNewLabel;
@@ -145,11 +148,11 @@ public class RegisterPage extends JFrame implements ActionListener {
 		passwordField.setBounds(82, 414, 445, 44);
 		panel.add(passwordField);
 		
-		btnOk = new JButton("Log-In\r\n");
-		btnOk.setFont(new Font("MV Boli", Font.PLAIN, 25));
-		btnOk.addActionListener(this);
-		btnOk.setBounds(82, 486, 138, 45);
-		panel.add(btnOk);
+		btnLogIn = new JButton("Log-In\r\n");
+		btnLogIn.setFont(new Font("MV Boli", Font.PLAIN, 25));
+		btnLogIn.addActionListener(this);
+		btnLogIn.setBounds(82, 486, 138, 45);
+		panel.add(btnLogIn);
 		
 		btnCancel = new JButton("Cancel\r\n");
 		btnCancel.setFont(new Font("MV Boli", Font.PLAIN, 25));
@@ -169,7 +172,7 @@ public class RegisterPage extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==btnOk) {
+		if(e.getSource()==btnLogIn) {
 			new MenuPage();
 			jframe.dispose();			
 		}

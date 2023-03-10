@@ -79,7 +79,7 @@ public class MenuPage extends JFrame implements ActionListener {
 		frame.getContentPane().add(panel);
 		
 		JLabel lblQuantity = new JLabel("Quantity");
-		lblQuantity.setBounds(363, 163, 134, 77);
+		lblQuantity.setBounds(208, 163, 134, 77);
 		lblQuantity.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		panel.add(lblQuantity);
 		
@@ -97,7 +97,7 @@ public class MenuPage extends JFrame implements ActionListener {
 		
 		JComboBox drink1CB = new JComboBox();
 		drink1CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
-		drink1CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink1CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink1CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink1CB.setBounds(10, 221, 172, 50);
 		panel.add(drink1CB);
@@ -105,26 +105,26 @@ public class MenuPage extends JFrame implements ActionListener {
 		qty1 = new JTextField();
 		qty1.setHorizontalAlignment(SwingConstants.CENTER);
 		qty1.setFont(new Font("MV Boli", Font.PLAIN, 30));
-		qty1.setBounds(363, 221, 132, 50);
+		qty1.setBounds(208, 221, 132, 50);
 		panel.add(qty1);
 		qty1.setColumns(10);
 		
 		JComboBox drink2CB = new JComboBox();
-		drink2CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink2CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink2CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink2CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		drink2CB.setBounds(10, 282, 172, 50);
 		panel.add(drink2CB);
 		
 		JComboBox drink3CB = new JComboBox();
-		drink3CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink3CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink3CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink3CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		drink3CB.setBounds(10, 343, 172, 50);
 		panel.add(drink3CB);
 		
 		JComboBox drink4CB = new JComboBox();
-		drink4CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink4CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink4CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink4CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		drink4CB.setBounds(10, 404, 172, 50);
@@ -139,68 +139,68 @@ public class MenuPage extends JFrame implements ActionListener {
 		btnNext = new JButton("Next\r\n");
 		btnNext.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		btnNext.addActionListener(this);
-		btnNext.setBounds(442, 506, 134, 44);
+		btnNext.setBounds(202, 506, 134, 44);
 		panel.add(btnNext);
 		
 		qty2 = new JTextField();
 		qty2.setHorizontalAlignment(SwingConstants.CENTER);
 		qty2.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		qty2.setColumns(10);
-		qty2.setBounds(363, 282, 132, 50);
+		qty2.setBounds(208, 282, 132, 50);
 		panel.add(qty2);
 		
 		qty3 = new JTextField();
 		qty3.setHorizontalAlignment(SwingConstants.CENTER);
 		qty3.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		qty3.setColumns(10);
-		qty3.setBounds(363, 343, 132, 50);
+		qty3.setBounds(208, 343, 132, 50);
 		panel.add(qty3);
 		
 		qty4 = new JTextField();
 		qty4.setHorizontalAlignment(SwingConstants.CENTER);
 		qty4.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		qty4.setColumns(10);
-		qty4.setBounds(365, 404, 132, 50);
+		qty4.setBounds(210, 404, 132, 50);
 		panel.add(qty4);
 		
 		JRadioButton hot1 = new JRadioButton("Hot");
 		hot1.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		hot1.setBounds(503, 221, 73, 23);
+		hot1.setBounds(346, 221, 73, 23);
 		panel.add(hot1);
 		
 		JRadioButton cold1 = new JRadioButton("Cold");
 		cold1.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		cold1.setBounds(503, 247, 73, 23);
+		cold1.setBounds(346, 247, 73, 23);
 		panel.add(cold1);
 		
 		JRadioButton hot2 = new JRadioButton("Hot");
 		hot2.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		hot2.setBounds(503, 283, 73, 23);
+		hot2.setBounds(346, 282, 73, 23);
 		panel.add(hot2);
 		
 		JRadioButton cold2 = new JRadioButton("Cold");
 		cold2.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		cold2.setBounds(503, 309, 73, 23);
+		cold2.setBounds(346, 308, 73, 23);
 		panel.add(cold2);
 		
 		JRadioButton hot3 = new JRadioButton("Hot");
 		hot3.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		hot3.setBounds(503, 344, 73, 23);
+		hot3.setBounds(346, 343, 73, 23);
 		panel.add(hot3);
 		
 		JRadioButton cold3 = new JRadioButton("Cold");
 		cold3.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		cold3.setBounds(503, 370, 73, 23);
+		cold3.setBounds(346, 369, 73, 23);
 		panel.add(cold3);
 		
 		JRadioButton hot4 = new JRadioButton("Hot");
 		hot4.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		hot4.setBounds(505, 405, 73, 23);
+		hot4.setBounds(348, 404, 73, 23);
 		panel.add(hot4);
 		
 		JRadioButton cold4 = new JRadioButton("Cold");
 		cold4.setFont(new Font("MV Boli", Font.PLAIN, 15));
-		cold4.setBounds(505, 431, 73, 23);
+		cold4.setBounds(348, 430, 73, 23);
 		panel.add(cold4);
 		
 		group1 = new ButtonGroup();
@@ -219,6 +219,41 @@ public class MenuPage extends JFrame implements ActionListener {
 		group4.add(hot4);
 		group4.add(cold4);
 		
+		JLabel lblPrice = new JLabel("Price\r\n");
+		lblPrice.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice.setBounds(471, 163, 84, 77);
+		panel.add(lblPrice);
+		
+		JLabel lblPrice1 = new JLabel("0$");
+		lblPrice1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice1.setBounds(481, 224, 73, 44);
+		panel.add(lblPrice1);
+		
+		JLabel lblPrice2 = new JLabel("0$");
+		lblPrice2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice2.setBounds(482, 285, 73, 44);
+		panel.add(lblPrice2);
+		
+		JLabel lblPrice3 = new JLabel("0$");
+		lblPrice3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice3.setBounds(482, 343, 73, 44);
+		panel.add(lblPrice3);
+		
+		JLabel lblPrice4 = new JLabel("0$");
+		lblPrice4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice4.setBounds(482, 410, 73, 44);
+		panel.add(lblPrice4);
+		
+		JLabel lblNetTotal = new JLabel("Total");
+		lblNetTotal.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblNetTotal.setBounds(346, 490, 84, 77);
+		panel.add(lblNetTotal);
+		
+		JLabel LblTotal = new JLabel("0$");
+		LblTotal.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		LblTotal.setBounds(482, 506, 73, 44);
+		panel.add(LblTotal);
+		
 		
 	}
 
@@ -226,7 +261,7 @@ public class MenuPage extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==btnNext) {
-			new CheckOutPage();
+			new MenuPage();
 			frame.dispose();			
 		}
 		if(e.getSource()==btnCancel) {

@@ -3,7 +3,6 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -77,6 +76,7 @@ public class CheckOutPage extends JFrame implements ActionListener {
 		panel = new JPanel();
 		panel.setBackground(new Color(219, 184, 142));
 		panel.setBounds(0, 0, 584, 561);
+		contentPane.add(panel);
 		panel.setLayout(null);
 		panel.setVisible(true);
 		
@@ -169,7 +169,7 @@ public class CheckOutPage extends JFrame implements ActionListener {
 		btnCheckOut = new JButton("Check Out");
 		btnCheckOut.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		btnCheckOut.addActionListener(this);
-		btnCheckOut.setBounds(378, 506, 196, 44);
+		btnCheckOut.setBounds(395, 506, 179, 44);
 		panel.add(btnCheckOut);
 		
 		btnBack = new JButton("Back");
@@ -184,17 +184,16 @@ public class CheckOutPage extends JFrame implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600,600);
 		frame.setVisible(true);
-		frame.getContentPane().add(panel);
+				
 	}
 	@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==btnCheckOut) {
-				JOptionPane.showMessageDialog(null,"Thank you for purchase","Thank you", JOptionPane.PLAIN_MESSAGE);
-				new	LogInPage();
+				new MenuPage();
 				frame.dispose();			
 			}
 			if(e.getSource()==btnBack) {
-				new MenuPage();
+				new LogInPage();
 				frame.dispose();			
 			}
 		

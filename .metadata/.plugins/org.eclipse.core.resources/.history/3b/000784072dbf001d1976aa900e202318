@@ -190,7 +190,7 @@ public class CheckOutPage extends JFrame implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==btnCheckOut) {
 				JOptionPane.showMessageDialog(null,"Thank you for purchase","Thank you", JOptionPane.PLAIN_MESSAGE);
-				new	LogInPage();
+				new	MenuPage();
 				frame.dispose();			
 			}
 			if(e.getSource()==btnBack) {

@@ -97,7 +97,7 @@ public class MenuPage extends JFrame implements ActionListener {
 		
 		JComboBox drink1CB = new JComboBox();
 		drink1CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
-		drink1CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink1CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink1CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink1CB.setBounds(10, 221, 172, 50);
 		panel.add(drink1CB);
@@ -110,21 +110,21 @@ public class MenuPage extends JFrame implements ActionListener {
 		qty1.setColumns(10);
 		
 		JComboBox drink2CB = new JComboBox();
-		drink2CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink2CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink2CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink2CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		drink2CB.setBounds(10, 282, 172, 50);
 		panel.add(drink2CB);
 		
 		JComboBox drink3CB = new JComboBox();
-		drink3CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink3CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink3CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink3CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		drink3CB.setBounds(10, 343, 172, 50);
 		panel.add(drink3CB);
 		
 		JComboBox drink4CB = new JComboBox();
-		drink4CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink4CB.setModel(new DefaultComboBoxModel(new String[] {"Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
 		drink4CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
 		drink4CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
 		drink4CB.setBounds(10, 404, 172, 50);
@@ -226,7 +226,7 @@ public class MenuPage extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==btnNext) {
-			new CheckOutPage();
+			new MenuPage();
 			frame.dispose();			
 		}
 		if(e.getSource()==btnCancel) {
