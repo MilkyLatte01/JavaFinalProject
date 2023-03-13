@@ -92,7 +92,7 @@ public class CheckOutPage extends JFrame implements ActionListener {
 		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
 		
 		logo =new JLabel();
-		logo.setBounds(-45, 24, 234, 194);
+		logo.setBounds(-15, -20, 213, 175);
 		logo.setHorizontalAlignment(SwingConstants.CENTER);
 		logo.setIcon(Coffeelogo);
 		
@@ -165,6 +165,7 @@ public class CheckOutPage extends JFrame implements ActionListener {
 		frame.setSize(600,600);
 		frame.setVisible(true);
 		frame.getContentPane().add(panel);
+		frame.setTitle("Coffee Store");
 		
 		btnCheckBill = new JButton("Check bill");
 		btnCheckBill.addActionListener(new ActionListener() {
@@ -280,7 +281,7 @@ public class CheckOutPage extends JFrame implements ActionListener {
 			}
 		});
 		btnCheckBill.setFont(new Font("MV Boli", Font.PLAIN, 30));
-		btnCheckBill.setBounds(199, 35, 179, 44);
+		btnCheckBill.setBounds(208, 44, 179, 44);
 		panel.add(btnCheckBill);
 		
 		showTotal = new JLabel("");

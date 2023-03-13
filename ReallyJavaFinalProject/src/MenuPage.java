@@ -90,6 +90,7 @@ public class MenuPage extends JFrame implements ActionListener {
 		frame.setSize(600,600);
 		frame.setVisible(true);
 		frame.getContentPane().add(panel);
+		frame.setTitle("Coffee Store");
 		
 		JLabel lblQuantity = new JLabel("Quantity");
 		lblQuantity.setBounds(363, 163, 134, 77);
@@ -103,7 +104,7 @@ public class MenuPage extends JFrame implements ActionListener {
 		
 		
 		logo =new JLabel();
-		logo.setBounds(332, 10, 244, 194);
+		logo.setBounds(183, 16, 244, 194);
 		logo.setHorizontalAlignment(SwingConstants.CENTER);
 		logo.setIcon(Coffeelogo);
 		panel.add(logo);
@@ -252,10 +253,6 @@ public class MenuPage extends JFrame implements ActionListener {
 			String p2 = (String) drink2CB.getSelectedItem();
 			String p3 = (String) drink3CB.getSelectedItem();
 			String p4 = (String) drink4CB.getSelectedItem();
-			
-			
-				
-			
 			
 			if(p1.equals("Americano")) 
 				MenuName_1 = "Americano";
@@ -410,6 +407,10 @@ public class MenuPage extends JFrame implements ActionListener {
 					cd3.getCoffeeName(),cd3.getType(),cd3.getQuantity(),cd3.getPrice(),
 					cd4.getCoffeeName(),cd4.getType(),cd4.getQuantity(),cd4.getPrice());
 			frame.dispose();			
+		}
+		if(e.getSource()==btnCancel) {
+			new LogInPage();
+			frame.dispose();
 		}
 
 		

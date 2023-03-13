@@ -168,7 +168,7 @@ public class RegisterPage extends JFrame implements ActionListener {
 		jframe.setSize(600,600);
 		jframe.setVisible(true);
 		jframe.getContentPane().add(panel);
-		
+		jframe.setTitle("Coffee Store");
 	}
 
 	@Override

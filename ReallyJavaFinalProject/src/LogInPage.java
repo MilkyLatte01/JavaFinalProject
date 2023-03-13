@@ -51,12 +51,13 @@ public class LogInPage extends JFrame implements ActionListener{
 		});
 	}
 
-	
+	JLabel logo;
 	JButton Cancelbutton;
 	JButton LogInButton;
 	JButton RegInButton;
 	JFrame frame;
 	JPanel panel;
+	ImageIcon image;
 	/**
 	 * Create the frame.
 	 */
@@ -75,9 +76,10 @@ public class LogInPage extends JFrame implements ActionListener{
 					RegisterPass.setBackground(new Color(0xDBB88E));
 					RegisterPass.setBounds(0,400,600,200);
 					
-				//LABEL ZONE
 						
-					ImageIcon image = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+					
+					
+					
 				//JFRAME ZONE
 						
 					frame = new JFrame();
@@ -86,13 +88,10 @@ public class LogInPage extends JFrame implements ActionListener{
 					frame.getContentPane().setLayout(null);
 					frame.setSize(600,600);
 					frame.setResizable(false);
+					frame.setTitle("Coffee Store");
 					
 				//Frame Adding zone
 					frame.getContentPane().add(LogoPanel);
-					JLabel Iconlabel = new JLabel();
-					Iconlabel.setIcon(image);
-					Iconlabel.setBackground(new Color(0xDBB88E));
-					Iconlabel.setOpaque(true);
 					
 						JLabel RegisterTopic1=new JLabel();
 						RegisterTopic1.setText("Log-in");
@@ -100,23 +99,16 @@ public class LogInPage extends JFrame implements ActionListener{
 						GroupLayout gl_LogoPanel = new GroupLayout(LogoPanel);
 						gl_LogoPanel.setHorizontalGroup(
 							gl_LogoPanel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_LogoPanel.createSequentialGroup()
-									.addContainerGap()
-									.addComponent(Iconlabel)
-									.addPreferredGap(ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+								.addGroup(Alignment.TRAILING, gl_LogoPanel.createSequentialGroup()
+									.addContainerGap(219, Short.MAX_VALUE)
 									.addComponent(RegisterTopic1, GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
-									.addGap(69))
+									.addGap(168))
 						);
 						gl_LogoPanel.setVerticalGroup(
 							gl_LogoPanel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_LogoPanel.createSequentialGroup()
-									.addGroup(gl_LogoPanel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_LogoPanel.createSequentialGroup()
-											.addContainerGap()
-											.addComponent(Iconlabel, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_LogoPanel.createSequentialGroup()
-											.addGap(36)
-											.addComponent(RegisterTopic1, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)))
+									.addGap(39)
+									.addComponent(RegisterTopic1, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)
 									.addContainerGap(41, Short.MAX_VALUE))
 						);
 						LogoPanel.setLayout(gl_LogoPanel);
