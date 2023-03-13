@@ -1,0 +1,238 @@
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+
+public class MenuPage extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuPage frame = new MenuPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	ButtonGroup group1;
+	ButtonGroup group2;
+	ButtonGroup group3;
+	ButtonGroup group4;
+	JLabel logo;
+	JFrame frame;
+	JButton btnNext;
+	JButton btnCancel;
+	private JTextField qty1;
+	private JTextField qty2;
+	private JTextField qty3;
+	private JTextField qty4;
+	
+	
+	public MenuPage(){
+		
+		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+				
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(219, 184, 142));
+		panel.setBounds(0, 0, 584, 561);
+		panel.setLayout(null);
+		
+		//Frame Zone
+		frame=new JFrame();
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(600,600);
+		frame.setVisible(true);
+		frame.getContentPane().add(panel);
+		
+		JLabel lblQuantity = new JLabel("Quantity");
+		lblQuantity.setBounds(363, 163, 134, 77);
+		lblQuantity.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		panel.add(lblQuantity);
+		
+		JLabel lblNewLabel = new JLabel("Drinks");
+		lblNewLabel.setBounds(10, 163, 103, 77);
+		lblNewLabel.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		panel.add(lblNewLabel);
+		
+		
+		logo =new JLabel();
+		logo.setBounds(175, 5, 234, 194);
+		logo.setHorizontalAlignment(SwingConstants.CENTER);
+		logo.setIcon(Coffeelogo);
+		panel.add(logo);
+		
+		JComboBox drink1CB = new JComboBox();
+		drink1CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink1CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink1CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink1CB.setBounds(10, 221, 172, 50);
+		panel.add(drink1CB);
+		
+		qty1 = new JTextField();
+		qty1.setHorizontalAlignment(SwingConstants.CENTER);
+		qty1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty1.setBounds(363, 221, 132, 50);
+		panel.add(qty1);
+		qty1.setColumns(10);
+		
+		JComboBox drink2CB = new JComboBox();
+		drink2CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink2CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink2CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink2CB.setBounds(10, 282, 172, 50);
+		panel.add(drink2CB);
+		
+		JComboBox drink3CB = new JComboBox();
+		drink3CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink3CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink3CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink3CB.setBounds(10, 343, 172, 50);
+		panel.add(drink3CB);
+		
+		JComboBox drink4CB = new JComboBox();
+		drink4CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink4CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink4CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink4CB.setBounds(10, 404, 172, 50);
+		panel.add(drink4CB);
+		
+		btnCancel = new JButton("Cancel\r\n");
+		btnCancel.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnCancel.addActionListener(this);
+		btnCancel.setBounds(10, 506, 134, 44);
+		panel.add(btnCancel);
+		
+		btnNext = new JButton("Next\r\n");
+		btnNext.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnNext.addActionListener(this);
+		btnNext.setBounds(442, 506, 134, 44);
+		panel.add(btnNext);
+		
+		qty2 = new JTextField();
+		qty2.setHorizontalAlignment(SwingConstants.CENTER);
+		qty2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty2.setColumns(10);
+		qty2.setBounds(363, 282, 132, 50);
+		panel.add(qty2);
+		
+		qty3 = new JTextField();
+		qty3.setHorizontalAlignment(SwingConstants.CENTER);
+		qty3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty3.setColumns(10);
+		qty3.setBounds(363, 343, 132, 50);
+		panel.add(qty3);
+		
+		qty4 = new JTextField();
+		qty4.setHorizontalAlignment(SwingConstants.CENTER);
+		qty4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty4.setColumns(10);
+		qty4.setBounds(365, 404, 132, 50);
+		panel.add(qty4);
+		
+		JRadioButton hot1 = new JRadioButton("Hot");
+		hot1.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot1.setBounds(503, 221, 73, 23);
+		panel.add(hot1);
+		
+		JRadioButton cold1 = new JRadioButton("Cold");
+		cold1.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold1.setBounds(503, 247, 73, 23);
+		panel.add(cold1);
+		
+		JRadioButton hot2 = new JRadioButton("Hot");
+		hot2.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot2.setBounds(503, 283, 73, 23);
+		panel.add(hot2);
+		
+		JRadioButton cold2 = new JRadioButton("Cold");
+		cold2.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold2.setBounds(503, 309, 73, 23);
+		panel.add(cold2);
+		
+		JRadioButton hot3 = new JRadioButton("Hot");
+		hot3.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot3.setBounds(503, 344, 73, 23);
+		panel.add(hot3);
+		
+		JRadioButton cold3 = new JRadioButton("Cold");
+		cold3.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold3.setBounds(503, 370, 73, 23);
+		panel.add(cold3);
+		
+		JRadioButton hot4 = new JRadioButton("Hot");
+		hot4.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot4.setBounds(505, 405, 73, 23);
+		panel.add(hot4);
+		
+		JRadioButton cold4 = new JRadioButton("Cold");
+		cold4.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold4.setBounds(505, 431, 73, 23);
+		panel.add(cold4);
+		
+		group1 = new ButtonGroup();
+		group1.add(hot1);
+		group1.add(cold1);
+		
+		group2 = new ButtonGroup();
+		group2.add(hot2);
+		group2.add(cold2);
+		
+		group3 = new ButtonGroup();
+		group3.add(hot3);
+		group3.add(cold3);
+		
+		group4 = new ButtonGroup();
+		group4.add(hot4);
+		group4.add(cold4);
+		
+		
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==btnNext) {
+			new CheckOutPage();
+			frame.dispose();			
+		}
+		if(e.getSource()==btnCancel) {
+			new LogInPage();
+			frame.dispose();			
+		}
+		
+	}
+}

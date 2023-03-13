@@ -1,0 +1,331 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class CheckOutPage extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+
+	
+	
+	public static void main(String[] args) {
+		final CoffeeData cd1 = new CoffeeData();
+		final CoffeeData cd2 = new CoffeeData();
+		final CoffeeData cd3 = new CoffeeData();
+		final CoffeeData cd4 = new CoffeeData();
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					
+					CheckOutPage frame = new CheckOutPage(cd1.getCoffeeName(),cd1.getType(),cd1.getQuantity(),cd1.getPrice(),
+															cd2.getCoffeeName(),cd2.getType(),cd2.getQuantity(),cd2.getPrice(),
+															cd3.getCoffeeName(),cd3.getType(),cd3.getQuantity(),cd3.getPrice(),
+															cd4.getCoffeeName(),cd4.getType(),cd4.getQuantity(),cd4.getPrice());
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	JLabel logo;
+	JButton btnBack;
+	JButton btnCheckOut;
+	JButton btnCheckBill;
+	JFrame frame;
+	JPanel panel;
+	JLabel iblItem;
+	JLabel iblItem1;
+	JLabel iblItem2;
+	JLabel iblItem3;
+	JLabel lblTotalPrice;
+	JLabel lblNum;
+	JLabel showTotal ;
+		
+	public CoffeeData cd1 = new CoffeeData();
+	
+	
+	public String tt1,tt2,tt3,tt4;
+	
+	public int totalPrice1,totalPrice2,totalPrice3,totalPrice4;
+	
+	public int realTotal;
+	
+	public int qt1 ,qt2 ,qt3 ,qt4 ;
+	public int price1 ,price2 ,price3 ,price4;
+	private JLabel show_1;
+	private JLabel show_2;
+	private JLabel show_4;
+	private JLabel show_3;
+	
+	public CheckOutPage(final String coffeeName_1,final String type_1,final String quantity_1,final String price_1,
+						final String coffeeName_2,final String type_2,final String quantity_2,final String price_2,
+						final String coffeeName_3,final String type_3,final String quantity_3,final String price_3,
+						final String coffeeName_4,final String type_4,final String quantity_4,final String price_4) {
+		
+		
+		 
+		
+		
+
+
+
+
+		
+		
+		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+		
+		logo =new JLabel();
+		logo.setBounds(-45, 24, 234, 194);
+		logo.setHorizontalAlignment(SwingConstants.CENTER);
+		logo.setIcon(Coffeelogo);
+		
+		
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		panel = new JPanel();
+		panel.setBackground(new Color(219, 184, 142));
+		panel.setBounds(0, 0, 584, 561);
+		panel.setLayout(null);
+		panel.setVisible(true);
+		panel.add(logo);
+		
+		
+		iblItem = new JLabel("...");
+		iblItem.setHorizontalAlignment(SwingConstants.CENTER);
+		iblItem.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem.setBounds(0, 121, 490, 97);
+		panel.add(iblItem);
+		
+		iblItem1 = new JLabel("...");
+		iblItem1.setHorizontalAlignment(SwingConstants.CENTER);
+		iblItem1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem1.setBounds(10, 196, 467, 97);
+		panel.add(iblItem1);
+		
+		iblItem3 = new JLabel("...");
+		iblItem3.setHorizontalAlignment(SwingConstants.CENTER);
+		iblItem3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem3.setBounds(10, 349, 467, 97);
+		panel.add(iblItem3);
+		
+		iblItem2 = new JLabel("...");
+		iblItem2.setHorizontalAlignment(SwingConstants.CENTER);
+		iblItem2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem2.setBounds(10, 272, 467, 97);
+		panel.add(iblItem2);
+			
+		lblTotalPrice = new JLabel("Total Price:\r\n");
+		lblTotalPrice.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblTotalPrice.setBounds(143, 456, 179, 44);
+		panel.add(lblTotalPrice);
+		
+		lblNum = new JLabel("Num");
+		lblNum.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblNum.setBounds(332, 456, 158, 44);
+		panel.add(lblNum);
+		
+		btnCheckOut = new JButton("Check Out");
+		btnCheckOut.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnCheckOut.addActionListener(this);
+		btnCheckOut.setBounds(378, 506, 196, 44);
+		panel.add(btnCheckOut);
+		
+		btnBack = new JButton("Back");
+		btnBack.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnBack.addActionListener(this);
+		btnBack.setBounds(10, 506, 179, 44);
+		panel.add(btnBack);
+		
+		//Frame Zone
+		frame=new JFrame();
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(600,600);
+		frame.setVisible(true);
+		frame.getContentPane().add(panel);
+		
+		btnCheckBill = new JButton("Check bill");
+		btnCheckBill.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				showTotal.setText("Total");
+				try {
+				int sum = 0;
+				
+				System.out.print(coffeeName_1);
+				
+				for(int i = 1;i<=1;i++) {
+				
+				if(e.getSource()==btnCheckBill) {
+					
+					if((coffeeName_1 != "-")&&(type_1 != " "||type_1 != null)&&(quantity_1 != " "||quantity_1 != null)) {
+						iblItem.setText(coffeeName_1+" ("+type_1+")    "+price_1+" Baht");
+						show_1.setText(quantity_1);
+						qt1 = Integer.parseInt(quantity_1);
+						price1 = Integer.parseInt(price_1);
+						totalPrice1 = qt1*price1;
+						sum = totalPrice1+sum;
+						
+					}
+					else if((coffeeName_1 == "-")&&(type_1 == " "||type_1 == null)&&(quantity_1 == " "||quantity_1 == null)) {
+						iblItem.setText("");
+						
+						
+					}
+					else {
+						
+						break;
+					}
+					
+					if((coffeeName_2 != "-")&&(type_2 != " "||type_2 != null)&&(quantity_2 != " "||quantity_2 != null)) {
+						iblItem1.setText(coffeeName_2+" ("+type_2+")    "+price_2+" Baht");
+						show_2.setText(quantity_2);
+						qt2 = Integer.parseInt(quantity_2);
+						price2 = Integer.parseInt(price_2);
+						totalPrice2 = qt2*price2;
+						sum = totalPrice2+sum;
+					}
+					else if((coffeeName_2 == "-")&&(type_2 == " "||type_2 == null)&&(quantity_2 == " "||quantity_2 == null)) {
+						iblItem1.setText("");
+						
+						
+					}
+					else {
+						
+						break;
+					}
+					
+					
+					
+					if((coffeeName_3 != "-")&&(type_3 != " "|| type_3!= null)&&(quantity_3 != " ")) {
+						iblItem2.setText(coffeeName_3+" ("+type_3+")    "+price_3+" Baht");
+						show_3.setText(quantity_3);
+						qt3 = Integer.parseInt(quantity_3);
+						price3 = Integer.parseInt(price_3);
+						totalPrice3 = qt3*price3;
+						sum = totalPrice3+sum;
+					}
+					else if((coffeeName_3 == "-"||coffeeName_3 == null)&&(type_3 == " "|| type_3== null)&&(quantity_3 == " ")) {
+						iblItem2.setText("");
+						
+
+					}
+					else {
+						
+						break;
+					}
+					
+					
+					
+					
+					if((coffeeName_4 != "-")&&(type_4 != " ")&&(quantity_4 != " ")) {
+						iblItem3.setText(coffeeName_4+" ("+type_4+")    "+price_4+" Baht");
+						show_4.setText(quantity_4);
+						qt4 = Integer.parseInt(quantity_4);
+						price4 = Integer.parseInt(price_4);
+						totalPrice4 = qt4*price4;
+						sum = totalPrice4+sum;
+						break;
+						
+					}
+					else if((coffeeName_4 == "-")&&(type_4 == " ")&&(quantity_4 == " ")) {
+						iblItem3.setText("");
+						break;
+
+					}
+					else {
+						
+						break;
+					}
+					
+					
+					
+				}
+				
+				
+					
+					
+					
+					
+				}
+				String Ssum = sum+"";
+				
+				lblNum.setText(Ssum);
+				}catch(Exception e1) {
+					JOptionPane.showMessageDialog(null,"Please select the correct menu","error",JOptionPane.ERROR_MESSAGE);
+					MenuPage mp = new MenuPage();
+					frame.dispose();
+				}
+			}
+		});
+		btnCheckBill.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnCheckBill.setBounds(199, 35, 179, 44);
+		panel.add(btnCheckBill);
+		
+		showTotal = new JLabel("");
+		showTotal.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		showTotal.setBounds(487, 79, 89, 44);
+		panel.add(showTotal);
+		
+		show_1 = new JLabel("");
+		show_1.setHorizontalAlignment(SwingConstants.CENTER);
+		show_1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		show_1.setBounds(487, 133, 87, 63);
+		panel.add(show_1);
+		
+		show_2 = new JLabel("");
+		show_2.setHorizontalAlignment(SwingConstants.CENTER);
+		show_2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		show_2.setBounds(487, 217, 87, 63);
+		panel.add(show_2);
+		
+		show_4 = new JLabel("");
+		show_4.setHorizontalAlignment(SwingConstants.CENTER);
+		show_4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		show_4.setBounds(487, 368, 87, 63);
+		panel.add(show_4);
+		
+		show_3 = new JLabel("");
+		show_3.setHorizontalAlignment(SwingConstants.CENTER);
+		show_3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		show_3.setBounds(487, 301, 87, 63);
+		panel.add(show_3);
+	}
+	@Override
+		public void actionPerformed(ActionEvent e) {
+		
+		
+			if(e.getSource()==btnCheckOut) {
+				JOptionPane.showMessageDialog(null,"Thank you for purchase","Thank you", JOptionPane.PLAIN_MESSAGE);
+				
+				frame.dispose();			
+			}
+			if(e.getSource()==btnBack) {
+				new MenuPage();
+				frame.dispose();			
+			}
+			
+		
+	}
+}

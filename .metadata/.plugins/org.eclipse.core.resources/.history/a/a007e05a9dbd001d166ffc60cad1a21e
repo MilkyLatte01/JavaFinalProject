@@ -1,0 +1,81 @@
+import java.io.*;
+import java.util.*;
+
+public class Register {
+
+	private String Username;
+	private String Password;
+
+	public Register() {
+		this.Username = "";
+		this.Password = "";
+	}
+
+	public Register(String User, String Pass) {
+		Username = User;
+		Password = Pass;
+
+	}
+
+	public void setUsername(String User) {
+		this.Username = User;
+	}
+
+	public String getUsernamne() {
+		return Username;
+	}
+
+	public void setPassword(String Pass) {
+		this.Password = Pass;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void CustomerReg() throws IOException {
+
+		Scanner console = new Scanner(System.in);
+		FileWriter filename = new FileWriter("Customer.txt",true);
+		PrintWriter write = new PrintWriter(filename);
+		
+		System.out.print("Username : ");
+		Username = console.next();
+		System.out.print("Password : ");
+		Password = console.next();
+		System.out.println("Register Complete");
+
+		write.print(Username + " " + Password);
+		
+
+	}
+
+	public void CustomerLog() throws IOException {
+		try {
+			Scanner in = new Scanner(new File("Customer.txt"));
+			boolean check = false;
+
+			while (in.hasNext()) {
+				
+				Username = in.next();
+				                              
+				Password = in.next();
+				if(Username.equals(Username)&&Password.equals(Password)) {
+					check= true;
+					
+					
+				}
+				if(check) {
+					System.out.println("Login Complete");
+				}else {
+					System.out.println("Your Username or Password is worng, plese try again.");
+				}
+			}
+			in.close();
+		} catch (IOException e) {
+			System.out.print("\nSorry,file not fond...");
+
+		}
+	}
+
+}

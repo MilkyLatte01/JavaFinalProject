@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+public class testRegangLogin {
+
+	public static void main(String[] args)throws IOException {
+		Scanner scan = new Scanner(System.in);
+		String choice;
+		System.out.print("Choice : ");
+		choice = scan.next().toLowerCase();
+		
+		Register file = new Register();
+		if(choice.equals("reg"))
+			file.CustomerReg();
+		if(choice.equals("login"))
+			file.CustomerLog();
+	}
+
+}

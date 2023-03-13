@@ -1,0 +1,73 @@
+public class CoffeeData {
+    private String nameCoffee;
+    private String quantity;
+    private String type;
+
+    private int totalPrice;
+
+
+    private String[] mp = {" ","Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"};
+    private String[] priceHot = {"0","100","85","75","75","90","80"};
+    private String[] priceCold = {"0","70","80","65","85","50","100"};
+
+    private String price;
+
+    public CoffeeData(String nameCoffee,String quantitys,String types) {
+
+        this.nameCoffee = nameCoffee;
+        this.quantity = quantitys;
+        this.type = types;
+
+    }
+    public CoffeeData() {
+        this.nameCoffee = null;
+        this.quantity = null;
+        this.type = null;
+    }
+
+
+    public String getPrice() {
+
+        if(this.type == "hot") {
+            for(int i = 0;i<mp.length;i++) {
+                if(this.nameCoffee.equals(mp[i])) {
+                    return priceHot[i];
+                }
+            }
+        }
+        if(this.type == "cold") {
+            for(int i = 0;i<mp.length;i++) {
+                if(this.nameCoffee.equals(mp[i])) {
+                    return priceCold[i];
+                }
+            }
+
+
+    }
+        return null;
+    }
+
+
+
+    public String getCoffeeName() {
+        return this.nameCoffee;
+    }
+
+    public String getQuantity() {
+        return this.quantity;
+    }
+    public String getType() {
+        return this.type;
+    }
+
+
+
+
+
+
+
+
+    public String get() {
+        return getCoffeeName()+" | "+getQuantity()+" | "+getType()+" | "+getPrice();
+    }	
+}

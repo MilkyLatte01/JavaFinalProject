@@ -1,0 +1,202 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class CheckOutPage extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CheckOutPage frame = new CheckOutPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	JLabel logo;
+	JButton btnBack;
+	JButton btnCheckOut;
+	JFrame frame;
+	JPanel panel;
+	JLabel lblQuantity;
+	JLabel iblItem;
+	JLabel lblPrice;
+	JLabel iblItem1;
+	JLabel iblItem2;
+	JLabel iblItem3;
+	JLabel iblItem4;
+	JLabel lblPrice1;
+	JLabel lblPrice2;
+	JLabel lblPrice3;
+	JLabel lblPrice4;
+	JLabel lblQuantity1;
+	JLabel lblQuantity2;
+	JLabel lblQuantity3;
+	JLabel lblQuantity4;
+	JLabel lblTotalPrice;
+	JLabel lblNum;
+		
+	public CheckOutPage() {
+		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+		
+		logo =new JLabel();
+		logo.setBounds(175, 5, 234, 194);
+		logo.setHorizontalAlignment(SwingConstants.CENTER);
+		logo.setIcon(Coffeelogo);
+		
+		
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		panel = new JPanel();
+		panel.setBackground(new Color(219, 184, 142));
+		panel.setBounds(0, 0, 584, 561);
+		panel.setLayout(null);
+		panel.setVisible(true);
+		
+		lblQuantity = new JLabel("Quantity");
+		lblQuantity.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblQuantity.setBounds(227, 181, 133, 44);
+		panel.add(lblQuantity);
+		panel.add(logo);
+		
+		iblItem = new JLabel("Item");
+		iblItem.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem.setBounds(56, 181, 77, 44);
+		panel.add(iblItem);
+		
+		lblPrice = new JLabel("Price");
+		lblPrice.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice.setBounds(462, 181, 77, 44);
+		panel.add(lblPrice);
+		
+		iblItem1 = new JLabel("Item");
+		iblItem1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem1.setBounds(56, 236, 77, 44);
+		panel.add(iblItem1);
+		
+		iblItem3 = new JLabel("Item");
+		iblItem3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem3.setBounds(56, 346, 77, 44);
+		panel.add(iblItem3);
+		
+		iblItem2 = new JLabel("Item");
+		iblItem2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem2.setBounds(56, 291, 77, 44);
+		panel.add(iblItem2);
+		
+		iblItem4 = new JLabel("Item");
+		iblItem4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		iblItem4.setBounds(56, 401, 77, 44);
+		panel.add(iblItem4);
+		
+		lblPrice1 = new JLabel("Price");
+		lblPrice1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice1.setBounds(462, 236, 77, 44);
+		panel.add(lblPrice1);
+		
+		lblQuantity1 = new JLabel("Quantity");
+		lblQuantity1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblQuantity1.setBounds(227, 236, 133, 44);
+		panel.add(lblQuantity1);
+		
+		lblQuantity2 = new JLabel("Quantity");
+		lblQuantity2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblQuantity2.setBounds(227, 291, 133, 44);
+		panel.add(lblQuantity2);
+		
+		lblPrice2 = new JLabel("Price");
+		lblPrice2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice2.setBounds(462, 291, 77, 44);
+		panel.add(lblPrice2);
+		
+		lblQuantity3 = new JLabel("Quantity");
+		lblQuantity3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblQuantity3.setBounds(227, 346, 133, 44);
+		panel.add(lblQuantity3);
+		
+		lblPrice3 = new JLabel("Price");
+		lblPrice3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice3.setBounds(462, 346, 77, 44);
+		panel.add(lblPrice3);
+		
+		lblQuantity4 = new JLabel("Quantity");
+		lblQuantity4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblQuantity4.setBounds(227, 401, 133, 44);
+		panel.add(lblQuantity4);
+		
+		lblPrice4 = new JLabel("Price");
+		lblPrice4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblPrice4.setBounds(462, 401, 77, 44);
+		panel.add(lblPrice4);
+			
+		lblTotalPrice = new JLabel("Total Price:\r\n");
+		lblTotalPrice.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblTotalPrice.setBounds(143, 456, 179, 44);
+		panel.add(lblTotalPrice);
+		
+		lblNum = new JLabel("Num");
+		lblNum.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		lblNum.setBounds(332, 456, 77, 44);
+		panel.add(lblNum);
+		
+		btnCheckOut = new JButton("Check Out");
+		btnCheckOut.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnCheckOut.addActionListener(this);
+		btnCheckOut.setBounds(378, 506, 196, 44);
+		panel.add(btnCheckOut);
+		
+		btnBack = new JButton("Back");
+		btnBack.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnBack.addActionListener(this);
+		btnBack.setBounds(10, 506, 179, 44);
+		panel.add(btnBack);
+		
+		//Frame Zone
+		frame=new JFrame();
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(600,600);
+		frame.setVisible(true);
+		frame.getContentPane().add(panel);
+	}
+	@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource()==btnCheckOut) {
+				JOptionPane.showMessageDialog(null,"Thank you for purchase","Thank you", JOptionPane.PLAIN_MESSAGE);
+				new	LogInPage();
+				frame.dispose();			
+			}
+			if(e.getSource()==btnBack) {
+				new MenuPage();
+				frame.dispose();			
+			}
+		
+	}
+}

@@ -5,5 +5,5 @@ public class Testing{
 		
 	LogInPage LogInPage = new LogInPage();	
 	
-	}	
+	}s	
 }

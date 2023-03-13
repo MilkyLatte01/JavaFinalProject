@@ -1,0 +1,417 @@
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.concurrent.locks.Condition;
+
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.AbstractListModel;
+import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+
+public class MenuPage extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuPage frame = new MenuPage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	ButtonGroup group1;
+	ButtonGroup group2;
+	ButtonGroup group3;
+	ButtonGroup group4;
+	JLabel logo;
+	JFrame frame;
+	JButton btnNext;
+	JButton btnCancel;
+	private JTextField qty1;
+	private JTextField qty2;
+	private JTextField qty3;
+	private JTextField qty4;
+	
+	private JRadioButton hot1,hot2,hot3,hot4;
+	private JRadioButton cold1,cold2,cold3,cold4;
+	
+	private JComboBox drink1CB,drink2CB,drink3CB,drink4CB;
+	
+	
+	private String qty_1,qty_2,qty_3,qty_4;
+	
+	
+	public MenuPage(){
+		
+		String[] mp = {" ", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"};
+		
+		
+		ImageIcon Coffeelogo = new ImageIcon("D:\\Project Picture\\CoffeeLogoResize.jpg");
+				
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(219, 184, 142));
+		panel.setBounds(0, 0, 584, 561);
+		panel.setLayout(null);
+		
+		//Frame Zone
+		frame=new JFrame();
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(600,600);
+		frame.setVisible(true);
+		frame.getContentPane().add(panel);
+		
+		JLabel lblQuantity = new JLabel("Quantity");
+		lblQuantity.setBounds(363, 163, 134, 77);
+		lblQuantity.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		panel.add(lblQuantity);
+		
+		JLabel lblNewLabel = new JLabel("Drinks");
+		lblNewLabel.setBounds(10, 163, 103, 77);
+		lblNewLabel.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		panel.add(lblNewLabel);
+		
+		
+		logo =new JLabel();
+		logo.setBounds(332, 10, 244, 194);
+		logo.setHorizontalAlignment(SwingConstants.CENTER);
+		logo.setIcon(Coffeelogo);
+		panel.add(logo);
+		
+		drink1CB = new JComboBox();
+		drink1CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink1CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink1CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink1CB.setBounds(10, 221, 258, 50);
+		panel.add(drink1CB);
+		
+		
+		
+		qty1 = new JTextField();
+		qty1.setHorizontalAlignment(SwingConstants.CENTER);
+		qty1.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty1.setBounds(363, 221, 132, 50);
+		panel.add(qty1);
+		qty1.setColumns(10);
+		qty_1 = qty1.getText();
+		
+		drink2CB = new JComboBox();
+		drink2CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink2CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink2CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink2CB.setBounds(10, 283, 258, 50);
+		panel.add(drink2CB);
+		
+		drink3CB = new JComboBox();
+		drink3CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink3CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink3CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink3CB.setBounds(10, 343, 258, 50);
+		panel.add(drink3CB);
+		
+		drink4CB = new JComboBox();
+		drink4CB.setModel(new DefaultComboBoxModel(new String[] {"-", "Americano", "Cappuccino", "Espresso", "Latte", "Macchiato", "Mocha"}));
+		drink4CB.setToolTipText("Americano\r\nCappuccino\r\nEspresso\r\nLatte\r\nMacchiato\r\nMocha");
+		drink4CB.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		drink4CB.setBounds(10, 404, 258, 50);
+		panel.add(drink4CB);
+		
+		btnCancel = new JButton("Cancel\r\n");
+		btnCancel.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnCancel.addActionListener(this);
+		btnCancel.setBounds(10, 506, 134, 44);
+		panel.add(btnCancel);
+		
+		btnNext = new JButton("Next\r\n");
+		btnNext.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		btnNext.addActionListener(this);
+		btnNext.setBounds(442, 506, 134, 44);
+		panel.add(btnNext);
+		
+		qty2 = new JTextField();
+		qty2.setHorizontalAlignment(SwingConstants.CENTER);
+		qty2.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty2.setColumns(10);
+		qty2.setBounds(363, 282, 132, 50);
+		panel.add(qty2);
+		qty_2 = qty2.getText();
+		
+		qty3 = new JTextField();
+		qty3.setHorizontalAlignment(SwingConstants.CENTER);
+		qty3.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty3.setColumns(10);
+		qty3.setBounds(363, 343, 132, 50);
+		panel.add(qty3);
+		qty_3 = qty3.getText();
+		
+		qty4 = new JTextField();
+		qty4.setHorizontalAlignment(SwingConstants.CENTER);
+		qty4.setFont(new Font("MV Boli", Font.PLAIN, 30));
+		qty4.setColumns(10);
+		qty4.setBounds(363, 404, 132, 50);
+		panel.add(qty4);
+		qty_4 = qty4.getText();
+		
+		hot1 = new JRadioButton("Hot");
+		hot1.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot1.setBounds(503, 221, 73, 23);
+		panel.add(hot1);
+		
+		cold1 = new JRadioButton("Cold");
+		cold1.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold1.setBounds(503, 247, 73, 23);
+		panel.add(cold1);
+		
+		hot2 = new JRadioButton("Hot");
+		hot2.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot2.setBounds(503, 283, 73, 23);
+		panel.add(hot2);
+		
+		cold2 = new JRadioButton("Cold");
+		cold2.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold2.setBounds(503, 309, 73, 23);
+		panel.add(cold2);
+		
+		hot3 = new JRadioButton("Hot");
+		hot3.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot3.setBounds(503, 344, 73, 23);
+		panel.add(hot3);
+		
+		cold3 = new JRadioButton("Cold");
+		cold3.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold3.setBounds(503, 370, 73, 23);
+		panel.add(cold3);
+		
+		hot4 = new JRadioButton("Hot");
+		hot4.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		hot4.setBounds(505, 405, 73, 23);
+		panel.add(hot4);
+		
+		cold4 = new JRadioButton("Cold");
+		cold4.setFont(new Font("MV Boli", Font.PLAIN, 15));
+		cold4.setBounds(505, 431, 73, 23);
+		panel.add(cold4);
+		
+		group1 = new ButtonGroup();
+		group1.add(hot1);
+		group1.add(cold1);
+		
+		group2 = new ButtonGroup();
+		group2.add(hot2);
+		group2.add(cold2);
+		
+		group3 = new ButtonGroup();
+		group3.add(hot3);
+		group3.add(cold3);
+		
+		group4 = new ButtonGroup();
+		group4.add(hot4);
+		group4.add(cold4);
+		
+		
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String type_1 = null,type_2 = null,type_3 = null,type_4 = null;
+		String MenuName_1 = null,MenuName_2= null,MenuName_3= null,MenuName_4= null;
+		
+		if(e.getSource()==btnNext) {
+			String p1 = (String) drink1CB.getSelectedItem();
+			String p2 = (String) drink2CB.getSelectedItem();
+			String p3 = (String) drink3CB.getSelectedItem();
+			String p4 = (String) drink4CB.getSelectedItem();
+			
+			
+				
+			
+			
+			if(p1.equals("Americano")) 
+				MenuName_1 = "Americano";
+			
+			else if(p1.equals("Cappuccino")) 
+				MenuName_1 = "Cappuccino";
+			
+			else if(p1.equals("Espresso")) 
+				MenuName_1 = "Espresso";
+			
+			else if(p1.equals("Latte")) 
+				MenuName_1 = "Latte";
+			
+			else if(p1.equals("Macchiato")) 
+				MenuName_1 = "Macchiato";
+			
+			else if(p1.equals("Mocha")) 
+				MenuName_1 = "Mocha";
+			
+			else if(p1.equals("-")) 
+				MenuName_1 = "-";
+			
+			
+			if(p2.equals("Americano")) 
+				MenuName_2 = "Americano";
+			
+			else if(p2.equals("Cappuccino")) 
+				MenuName_2 = "Cappuccino";
+			
+			else if(p2.equals("Espresso")) 
+				MenuName_2 = "Espresso";
+			
+			else if(p2.equals("Latte")) 
+				MenuName_2 = "Latte";
+			
+			else if(p2.equals("Macchiato")) 
+				MenuName_2 = "Macchiato";
+			
+			else if(p2.equals("Mocha")) 
+				MenuName_2 = "Mocha";
+			
+			else if(p2.equals("-")) 
+				MenuName_2 = "-";
+			
+			
+			if(p3.equals("Americano")) 
+				MenuName_3 = "Americano";
+			
+			else if(p3.equals("Cappuccino")) 
+				MenuName_3 = "Cappuccino";
+			
+			else if(p3.equals("Espresso")) 
+				MenuName_3 = "Espresso";
+			
+			else if(p3.equals("Latte")) 
+				MenuName_3 = "Latte";
+			
+			else if(p3.equals("Macchiato")) 
+				MenuName_3 = "Macchiato";
+			
+			else if(p3.equals("Mocha")) 
+				MenuName_3 = "Mocha";
+			
+			else if(p3.equals("-")) 
+				MenuName_3 = "-";
+			
+			
+			if(p4.equals("Americano")) 
+				MenuName_4 = "Americano";
+			
+			else if(p4.equals("Cappuccino")) 
+				MenuName_4 = "Cappuccino";
+			
+			else if(p4.equals("Espresso")) 
+				MenuName_4 = "Espresso";
+			
+			else if(p4.equals("Latte")) 
+				MenuName_4 = "Latte";
+			
+			else if(p4.equals("Macchiato")) 
+				MenuName_4 = "Macchiato";
+			
+			else if(p4.equals("Mocha")) 
+				MenuName_4 = "Mocha";
+			
+			else if(p4.equals("-")) 
+				MenuName_4 = "-";
+			
+			
+			
+			if(hot1.isSelected())
+				type_1 = "hot";
+			if(cold1.isSelected())
+				type_1 = "cold";
+			
+			if(hot2.isSelected()) 
+				type_2 = "hot";
+			if(cold2.isSelected())
+				type_2 = "cold";
+			
+			if(hot3.isSelected()) 
+				type_3 = "hot";
+			if(cold3.isSelected())
+				type_3 = "cold";
+			
+			if(hot4.isSelected()) 
+				type_4 = "hot";
+			if(cold4.isSelected())
+				type_4 = "cold";
+			
+			
+			
+			
+			
+			CoffeeData cd1 = new CoffeeData(MenuName_1,qty1.getText(),type_1);
+			CoffeeData cd2 = new CoffeeData(MenuName_2,qty2.getText(),type_2);
+			CoffeeData cd3 = new CoffeeData(MenuName_3,qty3.getText(),type_3);
+			CoffeeData cd4 = new CoffeeData(MenuName_4,qty4.getText(),type_4);
+			System.out.println(cd1.get());
+			System.out.println(cd2.get());
+			System.out.println(cd3.get());
+			System.out.println(cd4.get());
+			/*
+			int a1 = Integer.parseInt(cd1.getPrice());
+			int q1 = Integer.parseInt(qty1.getText());
+			
+			int a2 = Integer.parseInt(cd2.getPrice());
+			int q2 = Integer.parseInt(qty2.getText());
+			
+			int a3 = Integer.parseInt(cd3.getPrice());
+			int q3 = Integer.parseInt(qty3.getText());
+			
+			int a4 = Integer.parseInt(cd4.getPrice());
+			int q4 = Integer.parseInt(qty3.getText());
+			
+			int result_1 = a1*q1;
+			int result_2 = a2*q2;
+			int result_3 = a3*q3;
+			int result_4 = a4*q4;
+			System.out.println(cd1.getPrice());
+			System.out.println(result_1);
+			System.out.println(result_2);
+			System.out.println(result_3);
+			System.out.println(result_4);
+			*/
+
+
+
+			
+			new CheckOutPage(cd1.getCoffeeName(),cd1.getType(),cd1.getQuantity(),cd1.getPrice(),
+					cd2.getCoffeeName(),cd2.getType(),cd2.getQuantity(),cd2.getPrice(),
+					cd3.getCoffeeName(),cd3.getType(),cd3.getQuantity(),cd3.getPrice(),
+					cd4.getCoffeeName(),cd4.getType(),cd4.getQuantity(),cd4.getPrice());
+			frame.dispose();			
+		}
+		
+		
+	}
+}

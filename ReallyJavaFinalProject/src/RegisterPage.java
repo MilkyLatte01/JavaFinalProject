@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -13,6 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -145,7 +149,7 @@ public class RegisterPage extends JFrame implements ActionListener {
 		passwordField.setBounds(82, 414, 445, 44);
 		panel.add(passwordField);
 		
-		btnOk = new JButton("Log-In\r\n");
+		btnOk = new JButton("Ok");
 		btnOk.setFont(new Font("MV Boli", Font.PLAIN, 25));
 		btnOk.addActionListener(this);
 		btnOk.setBounds(82, 486, 138, 45);
@@ -163,13 +167,23 @@ public class RegisterPage extends JFrame implements ActionListener {
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setSize(600,600);
 		jframe.setVisible(true);
-		jframe.add(panel);
+		jframe.getContentPane().add(panel);
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==btnOk) {
+			try {
+				FileWriter data = new FileWriter("E:/Sign Up Sheet.txt",true);
+				PrintWriter write = new PrintWriter(data);
+				write.println(nameTF.getText()+" "+telephoneTF.getText()+" "+passwordField.getText());
+				write.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(null,"Register Complete","Complete", JOptionPane.PLAIN_MESSAGE);
 			new MenuPage();
 			jframe.dispose();			
 		}

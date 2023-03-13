@@ -7,11 +7,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
@@ -255,13 +260,35 @@ public class LogInPage extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==LogInButton) {
+			try {
+				String  Password = "";
+				String Telephone = "";
+				FileReader filename = new FileReader("E:/Sign Up Sheet.txt");
+				BufferedReader read = new BufferedReader(filename);
+				String temp = null;
+				while((temp=read.readLine())!=null) {
+					String[] data = temp.split(" ");
+					String name  = data[0];
+					Telephone = data[1];
+					Password= data[2];
+				}
+
+				if(textField.getText().equals(Telephone)&&new String(passwordField.getPassword()).equals(Password)){
+					JOptionPane.showMessageDialog(null,"Login Complete","Complete", JOptionPane.PLAIN_MESSAGE);
+					frame.dispose();
+					new MenuPage();
+				}else {
+					JOptionPane.showMessageDialog(null,"Your Telephone number or your password is wrong,please try again","Login Fail", JOptionPane.PLAIN_MESSAGE);
+				}
+				read.close();
+			}catch(IOException e1) {
+				e1.printStackTrace();
+			}
 			
-			frame.dispose();
-			new MenuPage();
 		}
 		
-		if(e.getSource()==RegInButton) {
-			frame.dispose();
+			if(e.getSource()==RegInButton) {
+				frame.dispose();
 			new RegisterPage();
 		}
 		

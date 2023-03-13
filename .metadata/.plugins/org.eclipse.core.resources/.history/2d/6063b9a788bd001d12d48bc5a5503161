@@ -1,0 +1,65 @@
+import java.io.*;
+import java.util.*;
+
+public class Register {
+
+	private String Username;
+	private String Password;
+
+	public Register() {
+		this.Username = "";
+		this.Password = "";
+	}
+
+	public Register(String User, String Pass) {
+		Username = User;
+		Password = Pass;
+
+	}
+
+	public void setUsername(String User) {
+		this.Username = User;
+	}
+
+	public String getUsernamne() {
+		return Username;
+	}
+
+	public void setPassword(String Pass) {
+		this.Password = Pass;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void CustomerReg() throws IOException {
+
+		Scanner console = new Scanner(System.in);
+		PrintStream ps = new PrintStream(new File("Customer.txt"));
+
+		System.out.print("Username : ");
+		Username = console.next();
+		System.out.print("Password : ");
+		Password = console.next();
+		System.out.println("Register Complete");
+
+		ps.print(Username + " " + Password);
+
+	}
+
+	public void CustomerLog() throws IOException {
+		try {
+			Scanner in = new Scanner(new File("Customer.txt"));
+			boolean check = false;
+
+			while (in.hasNext()) {
+				Username = in.next();
+				Password = in.next();
+			}
+		} catch (IOException e) {
+
+		}
+	}
+
+}
